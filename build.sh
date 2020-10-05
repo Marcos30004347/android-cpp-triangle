@@ -2,6 +2,7 @@
 # Set loca variables
 ############################
 
+ANDROID_NDK=$ANDROID_NDK
 SDK=$ANDROID_SDK
 BUILD_TOOLS="${SDK}/build-tools/30.0.2"
 PLATFORM="${SDK}/platforms/android-28"
@@ -39,7 +40,8 @@ printf "${GREEN}Building native lib!\n${NC}"
 
 cd build/lib
 
-cmake -DANDROID_ABI=$ANDROID_ABI \
+cmake -DANDROID_NDK=$ANDROID_NDK \
+      -DANDROID_ABI=$ANDROID_ABI \
       -DAPPLICATION_NAME=$APPLICATION_NAME \
       -DAPK_PACKAGE=$APK_PACKAGE \
       -DAPP_NAME=$APP_NAME \

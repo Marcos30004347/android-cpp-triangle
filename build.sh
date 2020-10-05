@@ -4,7 +4,7 @@
 
 SDK=$ANDROID_SDK
 BUILD_TOOLS="${SDK}/build-tools/30.0.2"
-PLATFORM="${SDK}/platforms/android-22"
+PLATFORM="${SDK}/platforms/android-28"
 
 APP_NAME="testelib"
 APK_PACKAGE="com.example.$APP_NAME"

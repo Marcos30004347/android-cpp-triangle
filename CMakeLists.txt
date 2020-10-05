@@ -30,10 +30,19 @@ add_library(native_app_glue STATIC $ENV{ANDROID_NDK}/sources/android/native_app_
 # compile main app
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -Werror")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -u ANativeActivity_onCreate")
-add_library(${TARGET_NAME} SHARED source/main.cpp)
+
+add_library(${TARGET_NAME} SHARED
+source/main.cpp
+)
 
 # include directories
 target_include_directories(${TARGET_NAME} PRIVATE $ENV{ANDROID_NDK}/sources/android/native_app_glue)
 
 # add lib dependencies
-target_link_libraries(${TARGET_NAME} android native_app_glue)
+target_link_libraries(${TARGET_NAME}
+android
+native_app_glue
+EGL
+GLESv2
+log
+)
